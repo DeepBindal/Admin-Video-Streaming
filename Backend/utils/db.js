@@ -14,7 +14,7 @@ const connectToDB = async () => {
     return;
   }
   try {
-    await mongoose.connect("mongodb+srv://deepbindal36:1ig73FHP3REnYDya@admindb.lseoio3.mongodb.net/?retryWrites=true&w=majority&appName=admindb");
+    await mongoose.connect(process.env.MONGODB_URL);
 
     isConnected = true; // Set the connection status to true
     console.log("MongoDB connected");
