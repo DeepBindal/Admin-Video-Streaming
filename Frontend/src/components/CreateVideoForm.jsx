@@ -30,7 +30,7 @@ const CreateVideoForm = () => {
   const [videoProgress, setVideoProgress] = useState(0);
   const [imageProgress, setImageProgress] = useState(0);
 
-  const handleSelectionChange = (e) => setValue(e);
+  const handleSelectionChange = (e) => setValue(e.target.value);
 
   const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {

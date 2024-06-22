@@ -50,7 +50,7 @@ const VideoDetails = () => {
   const handleStatusChange = async (newStatus) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/user/video/${video._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}api/user/video/${video._id}`,
         {
           method: "PUT",
           headers: {
@@ -110,7 +110,7 @@ const VideoDetails = () => {
         <CardHeader className="flex flex-col items-center">
           <h1 className="text-3xl font-bold mb-2 text-center">{video.title}</h1>
           <p className="text-gray-600 text-center mb-4">{video.description}</p>
-          <div className="w-full h-60 lg:h-80 overflow-hidden rounded-lg">
+          <div className="w-full h-60 lg:h-80 mt-4 overflow-hidden rounded-lg">
             <img
               src={video.thumbnailUrl}
               alt="thumbnail"
