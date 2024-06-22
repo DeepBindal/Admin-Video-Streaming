@@ -6,7 +6,15 @@ const { generateToken } = require("../utils/jwt");
 const signupUser = async (req, res) => {
   await connectToDB();
   const { email, firstName, lastName, image, password, username } = req.body;
-  console.log(image);
+  
+  const existUser = await User.find({email});
+  console.log(existUser)
+
+  if(existUser.length > 0){
+    return res.status(201).json({message: "User already exists"});
+  }
+
+
   if (!username) {
     throw new Error("Missing field Username");
   }

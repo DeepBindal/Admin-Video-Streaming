@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../main";
 import { Avatar, Button, Spinner } from "@nextui-org/react";
 import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 function Home() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function Home() {
   useEffect(() => {
     async function fetchVideos() {
       try {
-        const response = await fetch(`http://localhost:5000/api/video/${user._id}`);
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/video/${user._id}`);
         const res = await response.json();
         setData(res.data);
       } catch (error) {
@@ -93,9 +94,10 @@ function Home() {
 
   async function handleDelete(id) {
     try {
-      await fetch(`http://localhost:5000/api/user/video/${id}`, {
+      await fetch(`${import.meta.env.VITE_BACKEND_URL}api/user/video/${id}`, {
         method: "DELETE",
       });
+      toast.success("Video Deleted")
       setData(data.filter((video) => video._id !== id));
     } catch (error) {
       console.error("Error deleting video:", error);

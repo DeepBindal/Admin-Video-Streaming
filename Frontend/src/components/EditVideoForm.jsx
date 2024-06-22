@@ -94,7 +94,7 @@ const EditVideoForm = () => {
         userId: user._id,
       };
 
-      const response = await fetch(`http://localhost:5000/api/user/video/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}api/user/video/${id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

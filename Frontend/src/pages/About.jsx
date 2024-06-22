@@ -16,7 +16,7 @@ function About() {
     const fetchUser = async () => {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:5000/auth/user/${user._id}`
+        `${import.meta.env.VITE_BACKEND_URL}auth/user/${user._id}`
       );
       const res = await response.json();
       setData(res.user);

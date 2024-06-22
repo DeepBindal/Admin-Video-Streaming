@@ -6,7 +6,6 @@ import Signup from "./pages/Signup";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import Sidebar from "./components/Sidebar";
-import Profile from "./pages/Profile";
 import CreateVideo from "./pages/CreateVideo";
 import VideoDetails from "./pages/VideoDetails";
 import Analytis from "./pages/Analytics";
@@ -29,7 +28,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/auth/signup" element={<Signup />} />
             <Route path="/auth/login" element={<Login />} />
-            <Route path="/profile" element={<Profile />} />
             <Route path="/create-video" element={<CreateVideo />} />
             <Route path="/video/:id" element={<VideoDetails />} />
             <Route path="/video/edit/:id" element={<EditVideo />} />
